@@ -101,6 +101,7 @@ const toggleSidebar = () => {
   display: flex;
   justify-content: center;
   cursor: pointer;
+  padding-top: 3.5rem;
 }
 
 .top {
@@ -116,6 +117,7 @@ const toggleSidebar = () => {
   flex-direction: column;
   justify-content: center;
   gap: 5px;
+  padding-bottom: 15px;
 }
 
 .sidebar-item {
