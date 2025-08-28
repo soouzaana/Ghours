@@ -5,6 +5,6 @@ import MainLayout from "../../MainLayout/MainLayout.vue";
 <template>
   <MainLayout>
     <h1 class="text-3xl font-bold mb-4">Página Inicial</h1>
-    <p>mudança</p>
+    <p>gi</p>
   </MainLayout>
 </template>
