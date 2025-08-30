@@ -8,7 +8,7 @@ defineProps({
 const count = ref(0);
 </script>
 
-<template>nao fodo com nenhum de vcs</template>
+<template>Hello World</template>
 
 <style scoped>
 .read-the-docs {
