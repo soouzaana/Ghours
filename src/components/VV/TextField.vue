@@ -48,8 +48,8 @@ const inputValue = defineModel<string | number>({
   justify-content: space-between;
   position: relative;
   width: 100%;
-  min-height: 3rem; /* 48px */
-  border: 2px solid #3d3d3d;
+  min-height: 3rem;
+  border: 2px solid #808080;
   border-radius: 0.5rem;
   padding: 0.5rem 0.75rem;
   font-weight: 500;
@@ -69,7 +69,7 @@ const inputValue = defineModel<string | number>({
   padding: 0 0.25rem;
   font-size: 0.813rem;
   font-weight: 600;
-  color: #3d3d3d;
+  color: #808080;
   pointer-events: none;
 }
 
@@ -84,7 +84,7 @@ const inputValue = defineModel<string | number>({
   outline: none;
   background-color: transparent;
   font-size: 1rem;
-  color: #3d3d3d;
+  color: #808080;
   padding: 0.25rem 0;
 }
 
@@ -102,6 +102,6 @@ const inputValue = defineModel<string | number>({
   margin-left: 0.5rem;
   width: 1rem;
   height: 1rem;
-  color: #3d3d3d;
+  color: #808080;
 }
 </style>
