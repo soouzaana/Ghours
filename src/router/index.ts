@@ -3,7 +3,7 @@ import Inicio from "../components/Section/Inicio/Inicio.vue";
 import Agendamentos from "../components/Section/Agendamentos/Agendamento.vue";
 
 const routes = [
-  // { path: "/", component: Inicio },
+  { path: "/", component: Inicio },
   { path: "/agendamento", component: Agendamentos },
 ];
 
