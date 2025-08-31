@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import Home from "../Icons/Home.vue";
 import Report from "../Icons/Report.vue";
 import Hamburguer from "../Icons/Hamburguer.vue";
@@ -9,25 +10,28 @@ import Peoples from "../Icons/Peoples.vue";
 import Settings from "../Icons/Settings.vue";
 import Exit from "../Icons/Exit.vue";
 
+const router = useRouter();
+
 const topItems = ref([
-  { icon: Home, label: "Início" },
-  { icon: Report, label: "Relatórios" },
-  { icon: AddPeople, label: "Clientes" },
-  { icon: Calendar, label: "Agendamentos" },
-  { icon: Peoples, label: "Funcionários" },
+  { icon: Home, label: "Início", path: "/" },
+  { icon: Report, label: "Relatórios", path: "/relatorios" },
+  { icon: AddPeople, label: "Clientes", path: "/clientes" },
+  { icon: Calendar, label: "Agendamentos", path: "/agendamentos" },
+  { icon: Peoples, label: "Funcionários", path: "/funcionarios" },
 ]);
 
 const bottomItems = ref([
-  { icon: Settings, label: "Configurações" },
-  { icon: Exit, label: "Sair" },
+  { icon: Settings, label: "Configurações", path: "/configuracoes" },
+  { icon: Exit, label: "Sair", path: "/logout" },
 ]);
 
 const activeIndex = ref<number | null>(null);
 const isExpanded = ref(false);
 const isHover = ref(false);
 
-const setActive = (index: number) => {
+const setActive = (index: number, path: string) => {
   activeIndex.value = index;
+  router.push(path);
 };
 
 const toggleSidebar = () => {
@@ -54,7 +58,7 @@ const toggleSidebar = () => {
           :key="index"
           class="sidebar-item"
           :class="{ active: activeIndex === index }"
-          @click="setActive(index)"
+          @click="setActive(index, item.path)"
         >
           <component :is="item.icon" class="icon" />
           <span class="label">{{ item.label }}</span>
@@ -67,6 +71,7 @@ const toggleSidebar = () => {
         v-for="(item, index) in bottomItems"
         :key="index"
         class="sidebar-item"
+        @click="router.push(item.path)"
       >
         <component :is="item.icon" class="icon" />
         <span class="label">{{ item.label }}</span>
