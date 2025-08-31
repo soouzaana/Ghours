@@ -47,7 +47,8 @@ main {
   display: flex;
   flex-direction: column;
   padding-top: 6rem;
-  padding-left: 10rem;
+  padding-left: 12rem; /* pequeno espaço para sidebar */
+  padding-right: 2rem; /* pequena borda à direita */
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
@@ -82,8 +83,7 @@ main {
 
 .content {
   flex: 1;
-  padding: 1.5rem 4rem;
-  overflow-y: auto;
+  padding: 1.5rem 0; /* sem padding horizontal extra */
   width: 100%;
   margin: 0;
 }
