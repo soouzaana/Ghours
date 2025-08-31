@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import MainLayout from "../../MainLayout/MainLayout.vue";
+import { ref, computed } from "vue";
+import DataTable from "../../UI/DataTable/DataTable.vue";
 import TextField from "../../VV/TextField.vue";
 import ButtonDefault from "../../UI/Button/Default/Default.vue";
 import IconAdd from "../../Icons/Add.vue";
@@ -36,17 +36,45 @@ const agendamentos = ref([
   },
 ]);
 
-const editarAgendamento = (id: number) => {
-  console.log("Editar agendamento", id);
-};
-
-const excluirAgendamento = (id: number) => {
+const editarAgendamento = (id: number) => console.log("Editar agendamento", id);
+const excluirAgendamento = (id: number) =>
   console.log("Excluir agendamento", id);
-};
+const verDetalhes = (id: number) => console.log("Ver detalhes agendamento", id);
 
-const verDetalhes = (id: number) => {
-  console.log("Ver detalhes agendamento", id);
-};
+const columns = [
+  { key: "nomeCliente", label: "Nome do Cliente" },
+  { key: "telefone", label: "Telefone" },
+  { key: "quadra", label: "Quadra" },
+  { key: "numeroQuadra", label: "Nº Quadra" },
+  { key: "tempo", label: "Tempo" },
+  { key: "valorHora", label: "Valor/Hora" },
+  { key: "valorTotal", label: "Valor Total" },
+  { key: "status", label: "Status" },
+];
+
+const actions = [
+  {
+    icon: IconEdit,
+    name: "editar",
+    handler: (row: any) => editarAgendamento(row.id),
+  },
+  {
+    icon: IconExclude,
+    name: "excluir",
+    handler: (row: any) => excluirAgendamento(row.id),
+  },
+  {
+    icon: IconEye,
+    name: "detalhes",
+    handler: (row: any) => verDetalhes(row.id),
+  },
+];
+
+const filteredAgendamentos = computed(() =>
+  agendamentos.value.filter((a) =>
+    a.nomeCliente.toLowerCase().includes(search.value.toLowerCase())
+  )
+);
 </script>
 
 <template>
@@ -62,52 +90,7 @@ const verDetalhes = (id: number) => {
     <ButtonDefault><IconAdd /> </ButtonDefault>
   </div>
 
-  <div class="listagem">
-    <table>
-      <thead>
-        <tr>
-          <th>Nome do Cliente</th>
-          <th>Telefone</th>
-          <th>Quadra</th>
-          <th>Nº Quadra</th>
-          <th>Tempo</th>
-          <th>Valor/Hora</th>
-          <th>Valor Total</th>
-          <th>Status</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="agendamento in agendamentos" :key="agendamento.id">
-          <td>{{ agendamento.nomeCliente }}</td>
-          <td>{{ agendamento.telefone }}</td>
-          <td>{{ agendamento.quadra }}</td>
-          <td>{{ agendamento.numeroQuadra }}</td>
-          <td>{{ agendamento.tempo }}</td>
-          <td>R$ {{ agendamento.valorHora }}</td>
-          <td>R$ {{ agendamento.valorTotal }}</td>
-          <td>{{ agendamento.status }}</td>
-          <td class="secao-botoes">
-            <button
-              class="action-button"
-              @click="editarAgendamento(agendamento.id)"
-            >
-              <IconEdit />
-            </button>
-            <button
-              class="action-button"
-              @click="excluirAgendamento(agendamento.id)"
-            >
-              <IconExclude />
-            </button>
-            <button class="action-button" @click="verDetalhes(agendamento.id)">
-              <IconEye />
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <DataTable :columns="columns" :rows="agendamentos" :actions="actions" />
 </template>
 
 <style scoped>
@@ -129,86 +112,5 @@ const verDetalhes = (id: number) => {
   align-items: center;
   gap: 20rem;
   margin-bottom: 2rem;
-}
-
-.secao-botoes {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  padding: 2rem;
-}
-
-.action-button {
-  background-color: transparent;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  transition: background 0.2s, color 0.2s;
-}
-
-.action-button:hover {
-  background-color: #f7f7f7;
-}
-
-.listagem {
-  width: 100%;
-  overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  min-width: 800px;
-}
-
-thead {
-  background-color: rgba(128, 128, 128, 0.17);
-}
-
-th {
-  padding: 0.75rem 1rem;
-  font-weight: 600;
-  color: #e39b34;
-}
-
-td {
-  padding: 0.5rem 0.75rem;
-  vertical-align: middle;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.17);
-}
-
-tbody tr {
-  border-bottom: 1px solid #e5e5e5;
-  transition: background 0.2s;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.17);
-}
-
-tbody tr:hover {
-  background-color: #fdf6e3;
-}
-
-td:nth-child(8) {
-  font-weight: 600;
-}
-
-td:nth-child(8)::after {
-  content: attr(data-status);
-}
-
-.listagem::-webkit-scrollbar {
-  height: 8px;
-}
-
-.listagem::-webkit-scrollbar-thumb {
-  background-color: #e0e0e0;
-  border-radius: 4px;
-}
-
-.listagem::-webkit-scrollbar-track {
-  background-color: transparent;
 }
 </style>
