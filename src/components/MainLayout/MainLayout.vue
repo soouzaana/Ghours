@@ -11,7 +11,7 @@ const pageName = "Nome da página acessada";
     <p class="page-title">{{ pageName }}</p>
     <div class="header-right">
       <Bell class="icon-bell" />
-      <div class="logo">Logo</div>
+      <div class="logo"><img src="../../assets/logo.svg" alt="" /></div>
     </div>
   </header>
   <div class="main-area">
@@ -30,7 +30,7 @@ const pageName = "Nome da página acessada";
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  min-height: 60px;
   padding: 0 20px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ddd;
@@ -54,6 +54,11 @@ const pageName = "Nome da página acessada";
   flex-shrink: 0;
 }
 
+.logo img {
+  width: 70px;
+  height: auto;
+}
+
 .page-title {
   font-size: 1.2rem;
   font-weight: 600;
@@ -67,12 +72,6 @@ const pageName = "Nome da página acessada";
   height: 22px;
   cursor: pointer;
   color: #e39b34;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 1rem;
-  white-space: nowrap;
 }
 
 .content {
