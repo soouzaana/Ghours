@@ -39,12 +39,18 @@ const pageName = "Nome da página acessada";
   box-sizing: border-box;
 }
 
+main {
+  width: 100%;
+}
+
 .main-area {
-  margin-left: 80px;
-  padding-top: 60px;
   display: flex;
   flex-direction: column;
+  padding-top: 6rem;
+  padding-left: 10rem;
   height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .header-right {
@@ -78,5 +84,7 @@ const pageName = "Nome da página acessada";
   flex: 1;
   padding: 1.5rem 4rem;
   overflow-y: auto;
+  width: 100%;
+  margin: 0;
 }
 </style>
