@@ -10,7 +10,7 @@ const search = ref("");
 
 <template>
   <MainLayout>
-    <p class="main-title text-2xl font-semibold mb-4">Agendamento</p>
+    <p class="main-title text-2xl font-semibold">Agendamento</p>
     <div class="top-section">
       <TextField
         v-model="search"
@@ -38,5 +38,6 @@ const search = ref("");
   justify-content: space-between;
   align-items: center;
   gap: 30rem;
+  margin-top: 2rem;
 }
 </style>
