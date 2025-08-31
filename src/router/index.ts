@@ -4,7 +4,7 @@ import Agendamentos from "../components/Section/Agendamentos/Agendamento.vue";
 
 const routes = [
   { path: "/", component: Inicio },
-  { path: "/agendamento", component: Agendamentos },
+  { path: "/agendamentos", component: Agendamentos },
 ];
 
 const router = createRouter({

@@ -50,69 +50,64 @@ const verDetalhes = (id: number) => {
 </script>
 
 <template>
-  <MainLayout>
-    <p class="main-title text-2xl font-semibold">Agendamento</p>
+  <p class="main-title text-2xl font-semibold">Agendamento</p>
 
-    <div class="top-section">
-      <TextField
-        v-model="search"
-        label="Pesquisar"
-        placeholder="Digite algo..."
-        class="flex-1"
-      />
-      <ButtonDefault><IconAdd /> </ButtonDefault>
-    </div>
+  <div class="top-section">
+    <TextField
+      v-model="search"
+      label="Pesquisar"
+      placeholder="Digite algo..."
+      class="flex-1"
+    />
+    <ButtonDefault><IconAdd /> </ButtonDefault>
+  </div>
 
-    <div class="listagem">
-      <table>
-        <thead>
-          <tr>
-            <th>Nome do Cliente</th>
-            <th>Telefone</th>
-            <th>Quadra</th>
-            <th>Nº Quadra</th>
-            <th>Tempo</th>
-            <th>Valor/Hora</th>
-            <th>Valor Total</th>
-            <th>Status</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="agendamento in agendamentos" :key="agendamento.id">
-            <td>{{ agendamento.nomeCliente }}</td>
-            <td>{{ agendamento.telefone }}</td>
-            <td>{{ agendamento.quadra }}</td>
-            <td>{{ agendamento.numeroQuadra }}</td>
-            <td>{{ agendamento.tempo }}</td>
-            <td>R$ {{ agendamento.valorHora }}</td>
-            <td>R$ {{ agendamento.valorTotal }}</td>
-            <td>{{ agendamento.status }}</td>
-            <td class="secao-botoes">
-              <button
-                class="action-button"
-                @click="editarAgendamento(agendamento.id)"
-              >
-                <IconEdit />
-              </button>
-              <button
-                class="action-button"
-                @click="excluirAgendamento(agendamento.id)"
-              >
-                <IconExclude />
-              </button>
-              <button
-                class="action-button"
-                @click="verDetalhes(agendamento.id)"
-              >
-                <IconEye />
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </MainLayout>
+  <div class="listagem">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome do Cliente</th>
+          <th>Telefone</th>
+          <th>Quadra</th>
+          <th>Nº Quadra</th>
+          <th>Tempo</th>
+          <th>Valor/Hora</th>
+          <th>Valor Total</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="agendamento in agendamentos" :key="agendamento.id">
+          <td>{{ agendamento.nomeCliente }}</td>
+          <td>{{ agendamento.telefone }}</td>
+          <td>{{ agendamento.quadra }}</td>
+          <td>{{ agendamento.numeroQuadra }}</td>
+          <td>{{ agendamento.tempo }}</td>
+          <td>R$ {{ agendamento.valorHora }}</td>
+          <td>R$ {{ agendamento.valorTotal }}</td>
+          <td>{{ agendamento.status }}</td>
+          <td class="secao-botoes">
+            <button
+              class="action-button"
+              @click="editarAgendamento(agendamento.id)"
+            >
+              <IconEdit />
+            </button>
+            <button
+              class="action-button"
+              @click="excluirAgendamento(agendamento.id)"
+            >
+              <IconExclude />
+            </button>
+            <button class="action-button" @click="verDetalhes(agendamento.id)">
+              <IconEye />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <style scoped>

@@ -1,7 +1,11 @@
-<script setup>
-import Inicio from "../src/components/Section/Inicio/Inicio.vue";
+<script setup lang="ts">
+import MainLayout from "./components/MainLayout/MainLayout.vue";
 </script>
 
 <template>
-  <Inicio />
+  <MainLayout>
+    <div class="main-content">
+      <router-view />
+    </div>
+  </MainLayout>
 </template>

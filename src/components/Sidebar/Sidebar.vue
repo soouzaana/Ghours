@@ -168,6 +168,6 @@ const toggleSidebar = () => {
 }
 
 ul {
-  padding-inline-start: 20px;
+  padding-inline-start: 15px;
 }
 </style>
