@@ -7,7 +7,7 @@ import Funcionarios from "../components/Section/Funcionarios/Funcionarios.vue";
 import path from "path";
 
 const routes = [
-  { path: "/", component: Inicio },
+  { path: "/", component: Agendamentos },
   { path: "/relatorios", component: Relatorios },
   { path: "/clientes", component: Clientes },
   { path: "/agendamentos", component: Agendamentos },
