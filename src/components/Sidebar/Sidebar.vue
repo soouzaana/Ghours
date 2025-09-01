@@ -9,6 +9,7 @@ import Calendar from "../Icons/Calendar.vue";
 import Peoples from "../Icons/Peoples.vue";
 import Settings from "../Icons/Settings.vue";
 import Exit from "../Icons/Exit.vue";
+import Court from "../Icons/Court.vue";
 
 const router = useRouter();
 
@@ -18,6 +19,7 @@ const topItems = ref([
   { icon: AddPeople, label: "Clientes", path: "/clientes" },
   { icon: Calendar, label: "Agendamentos", path: "/agendamentos" },
   { icon: Peoples, label: "Funcionários", path: "/funcionarios" },
+  { icon: Court, label: "Quadras", path: "/quadras" },
 ]);
 
 const bottomItems = ref([
