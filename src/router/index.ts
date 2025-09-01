@@ -5,6 +5,7 @@ import Relatorios from "../components/Section/Relatorios/Relatorios.vue";
 import Clientes from "../components/Section/Clientes/Clientes.vue";
 import Funcionarios from "../components/Section/Funcionarios/Funcionarios.vue";
 import Quadras from "../components/Section/Quadras/Quadras.vue";
+import Settings from "../components/Section/Settings/Settings.vue";
 import path from "path";
 
 const routes = [
@@ -14,6 +15,7 @@ const routes = [
   { path: "/agendamentos", component: Agendamentos },
   { path: "/funcionarios", component: Funcionarios },
   { path: "/quadras", component: Quadras },
+  { path: "/configuracoes", component: Settings },
 ];
 
 const router = createRouter({

@@ -96,6 +96,7 @@ const filteredAgendamentos = computed(() =>
 <style scoped>
 .main-title {
   margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .main-title::before {
