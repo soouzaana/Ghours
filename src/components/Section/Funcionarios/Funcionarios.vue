@@ -116,6 +116,7 @@ function deleteFuncionario(funcionario: any) {
 <style scoped>
 .main-title {
   margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .main-title::before {
