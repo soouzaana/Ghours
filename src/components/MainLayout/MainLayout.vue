@@ -11,7 +11,7 @@ const pageName = "Nome da página acessada";
     <p class="page-title">{{ pageName }}</p>
     <div class="header-right">
       <Bell class="icon-bell" />
-      <div class="logo">Logo</div>
+      <div class="logo"><img src="../../assets/logo.svg" alt="" /></div>
     </div>
   </header>
   <div class="main-area">
@@ -30,7 +30,7 @@ const pageName = "Nome da página acessada";
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  min-height: 60px;
   padding: 0 20px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ddd;
@@ -39,12 +39,19 @@ const pageName = "Nome da página acessada";
   box-sizing: border-box;
 }
 
+main {
+  width: 100%;
+}
+
 .main-area {
-  margin-left: 80px;
-  padding-top: 60px;
   display: flex;
   flex-direction: column;
+  padding-top: 6rem;
+  padding-left: 15rem;
+  padding-right: 5rem;
   height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .header-right {
@@ -52,6 +59,11 @@ const pageName = "Nome da página acessada";
   align-items: center;
   gap: 20px;
   flex-shrink: 0;
+}
+
+.logo img {
+  width: 70px;
+  height: auto;
 }
 
 .page-title {
@@ -69,15 +81,10 @@ const pageName = "Nome da página acessada";
   color: #e39b34;
 }
 
-.logo {
-  font-weight: bold;
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
 .content {
   flex: 1;
-  padding: 1.5rem 4rem;
-  overflow-y: auto;
+  padding: 1.5rem 0;
+  width: 100%;
+  margin: 0;
 }
 </style>
