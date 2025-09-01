@@ -1,0 +1,1 @@
+<template>quadras</template>
